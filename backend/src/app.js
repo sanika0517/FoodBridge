@@ -1,11 +1,14 @@
 const express = require("express");
+const foodRoutes = require("./routes/foodRoutes");
+const authRoutes = require("./routes/authRoutes");
 
 const app = express();
 
-// Middleware
 app.use(express.json());
 
-// Test Route
+app.use("/api/foods", foodRoutes);
+app.use("/api/auth", authRoutes);
+
 app.get("/", (req, res) => {
     res.send("🚀 FoodBridge API is running...");
 });
